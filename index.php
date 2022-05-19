@@ -12,6 +12,12 @@
 ?>
 <meta charset="utf-8">
 <h1>Instagram Basic Display API</h1>
+<h2>Code <?php if(isset($_GET['code'])){ 
+	echo('code ada'); 
+	}else{ 
+		echo 'code tidak ada';
+	}  ?>
+</h2>
 <hr />
 <?php if ( $ig->hasUserAccessToken ) : ?>
 	<h4>IG Info</h4>
@@ -24,7 +30,7 @@
 	<h2>IG ID: <?php echo $user['id']; ?></h2>
 	<h3>Media Count: <?php echo $user['media_count']; ?></h3>
 	<h4>Account Type: <?php echo $user['account_type']; ?></h4>
-	<hr />
+	<hr/>
 	
 	<?php $usersMedia = $ig->getUsersMedia(); ?>
 	<h3>Users Media Page 1 (<?php echo count( $usersMedia['data'] ); ?>)</h3>
@@ -44,7 +50,7 @@
 					<?php endif; ?>
 				</div>
 				<div>
-					<b>Caption: <a href="<?php echo $post['permalink']; ?>" target="_blank" rel="noopener noreferrer">Go Link</a></b>
+					<b>Caption: <a href="<?php echo $post['permalink']; ?>" target="_blank" rel="noopener noreferrer"><?php echo $post['caption']; ?></a></b>
 				</div>
 				<div>
 					ID: <?php echo $post['id']; ?>
