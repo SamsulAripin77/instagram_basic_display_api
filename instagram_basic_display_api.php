@@ -2,16 +2,16 @@
 	require_once( 'defines.php' );
 
 	Class instagram_basic_display_api {
-		private $_appId = INSTAGRAM_APP_ID;
-		private $_appSecret = INSTAGRAM_APP_SECRET;
-		private $_redirectUrl = INSTAGRAM_APP_REDIRECT_URI;
+		private $_appId = '469098548321237';
+		private $_appSecret = 'fb22f9b1b7f95ddde2abb25932b3d7bf';
+		private $_redirectUrl = 'https://mangcoding.com';
 		private $_getCode = '';
 		private $_apiBaseUrl = 'https://api.instagram.com/';
 		private $_graphBaseUrl = 'https://graph.instagram.com/';
 		private $_userAccessToken = '';
 		private $_userAccessTokenExpires = '';
-		private $accessToken = 'IGQVJXYjBzSi1KZAUhhUHNyLVc0WmNFcU1IaVEzaTAyUmV1WERPLXhEYUhJVEhJZA1h4M1R3V21uV3czaFJpSUMxaXNrX29lZA1E0R0dJczFWRExJMVZACZAGx0Y2RZAVE9yVkt6LWVRQ3VtMVJNT0NFRzI0WAZDZD';
-		private $user_id = '5272898626109559';
+		private $accessToken = 'IGQVJWek1vbUF5WGNaRXdiblFHSkJDWlB5bUdCN3daam1tRmU4cW1LbU16QllUV3NJVnVQWkpXMVBVbmFMZAzd0NnZAyNTRHVHoyTUttaFBSdXNJeEpCNXJOUTE5UVRIaTM0RlczOWxNOHRkbG5MN3FtOQZDZD';
+		private $user_id = '5278301235541381';
 		function params() {
 			return array(
 				'access_token' => $this->accessToken,
