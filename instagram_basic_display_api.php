@@ -10,17 +10,27 @@
 		private $_graphBaseUrl = 'https://graph.instagram.com/';
 		private $_userAccessToken = '';
 		private $_userAccessTokenExpires = '';
+		private $accessToken = 'IGQVJXYjBzSi1KZAUhhUHNyLVc0WmNFcU1IaVEzaTAyUmV1WERPLXhEYUhJVEhJZA1h4M1R3V21uV3czaFJpSUMxaXNrX29lZA1E0R0dJczFWRExJMVZACZAGx0Y2RZAVE9yVkt6LWVRQ3VtMVJNT0NFRzI0WAZDZD';
+		private $user_id = '5272898626109559';
+		function params() {
+			return array(
+				'access_token' => $this->accessToken,
+				'user_id' => $this->user_id
+			);
+		} 
+			
 
 		public $authorizationUrl = '';
 		public $hasUserAccessToken = false;
 		public $userId = '';
 
-		function __construct( $params ) {
+
+		function __construct() {
 			// save instagram code
-			$this->_getCode = $params['get_code'];
+			// $this->_getCode = $this->params['get_code'];
 
 			// get an access token
-			$this->_setUserInstagramAccessToken( $params );
+			$this->_setUserInstagramAccessToken( $this->params() );
 
 			// get authorization url
 			$this->_setAuthorizationUrl();
@@ -73,7 +83,7 @@
 					'app_secret' => $this->_appSecret,
 					'grant_type' => 'authorization_code',
 					'redirect_uri' => $this->_redirectUrl,
-					'code' => $this->_getCode
+					// 'code' => $this->_getCode
 				)
 			);
 
@@ -168,7 +178,7 @@
 			if ( 'POST' == $params['type'] ) { // post request
 				curl_setopt( $ch, CURLOPT_POSTFIELDS, http_build_query( $params['url_params'] ) );
 				curl_setopt( $ch, CURLOPT_POST, 1 );
-			} elseif ( 'GET' == $params['type'] && !$params['url_params']['paging'] ) { // get request
+			} elseif ( 'GET' == $params['type']) { // get request
 				$params['url_params']['access_token'] = $this->_userAccessToken;
 
 				//add params to endpoint

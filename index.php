@@ -1,23 +1,10 @@
 <?php
 	require_once( 'instagram_basic_display_api.php' );
-
-	$accessToken = 'IGQVJXYjBzSi1KZAUhhUHNyLVc0WmNFcU1IaVEzaTAyUmV1WERPLXhEYUhJVEhJZA1h4M1R3V21uV3czaFJpSUMxaXNrX29lZA1E0R0dJczFWRExJMVZACZAGx0Y2RZAVE9yVkt6LWVRQ3VtMVJNT0NFRzI0WAZDZD';
-
-	$params = array(
-		'get_code' => isset( $_GET['code'] ) ? $_GET['code'] : '',
-		'access_token' => $accessToken,
-		'user_id' => '5272898626109559'
-	);
-	$ig = new instagram_basic_display_api( $params );
+	
+	$ig = new instagram_basic_display_api();
 ?>
 <meta charset="utf-8">
 <h1>Instagram Basic Display API</h1>
-<h2>Code <?php if(isset($_GET['code'])){ 
-	echo('code ada'); 
-	}else{ 
-		echo 'code tidak ada';
-	}  ?>
-</h2>
 <hr />
 <?php if ( $ig->hasUserAccessToken ) : ?>
 	<h4>IG Info</h4>
